@@ -23,7 +23,7 @@ var _ = require('underscore');
 var request = require('request');
 
 //Getting all the users, probably from DB
-var users = require('./users.js');
+var users = require('./users.json');
 
 //Common form for everyone
 var base_form = {
