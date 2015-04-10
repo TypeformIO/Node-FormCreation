@@ -97,29 +97,19 @@ var users = _.map(users, function(user) {
 
 //Helper function for creating a typeform
 function create_form(form, success) {
-	request
-		//The url of the API endpoint
-		.post('https://api.typeform.io/v0.1/forms', {
+	//The url of the API endpoint
+	request.post('https://api.typeform.io/v0.1/forms', {
 			//Including the typeform as JSON
 			json: form,
 			headers: {
 				//The API-key, is a secret, do not share
 				'X-API-TOKEN': api_key
 			}
-		})
-	//When we receive an response from the API-call we make above
-	.on('response', function(response) {
-		var data = '';
-		//Start receiving data form the response
-		response.on('data', function(newData) {
-			data = data + newData;
+		}, function(error, response, body) {
+			//When we receive an response from the API-call we make above,
+			//call the success() callback with the data parsed from JSON
+			success(body);
 		});
-		//We finished receiving data, call the success() callback with the data parsed
-		//from JSON
-		response.on('end', function() {
-			success(JSON.parse(data));
-		});
-	});
 }
 
 //Show a message for the email with a link to the form
