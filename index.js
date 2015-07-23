@@ -98,7 +98,7 @@ var users = _.map(users, function(user) {
 //Helper function for creating a typeform
 function create_form(form, success) {
 	//The url of the API endpoint
-	request.post('https://api.typeform.io/v0.1/forms', {
+	request.post('https://api.typeform.io/v0.3/forms', {
 			//Including the typeform as JSON
 			json: form,
 			headers: {
@@ -122,7 +122,7 @@ _.each(users, function(user) {
 	//Create the form
 	create_form(user.form, function(data) {
 		//When form been created, get the link to render the form
-		var form_link = data.links.form_render.get
+		var form_link = data.links[1].href
 		//Show a message in the terminal
 		show_message(user.email, form_link)
 	});
