@@ -22,7 +22,7 @@ database.
 ## Issues
 
 If you are experiencing any issues, please create an issue here in Github or
-come to our [community Slack channel](http://docs.typeform.io/v0.1/page/slack-invite) and talk directly to us
+come to our [community Slack channel](http://docs.typeform.io/v0.4/page/slack-invite) and talk directly to us
 
 ## License
 
